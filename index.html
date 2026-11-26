@@ -526,7 +526,7 @@ $("#ppb").addEventListener("click",e=>{const a=e.target.closest("a[href^='#']");
 let DEF=null;addEventListener("beforeinstallprompt",e=>{e.preventDefault();DEF=e;$("#inst").hidden=false});
 $("#inst").onclick=async()=>{if(!DEF)return;DEF.prompt();try{await DEF.userChoice}catch(e){}DEF=null;$("#inst").hidden=true};
 addEventListener("appinstalled",()=>{$("#inst").hidden=true;say("✓ 앱으로 설치되었습니다",1)});
-if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol))navigator.serviceWorker.register("sw.js").catch(()=>{});
+if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol))navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).catch(()=>{});
 let _st;addEventListener("scroll",()=>{clearTimeout(_st);_st=setTimeout(()=>{if(document.querySelector(".row2"))S("scr",cur[0]+":"+cur[1]+":"+Math.round(scrollY))},250)},{passive:true});
 addEventListener("beforeunload",e=>{if(document.querySelector(".ef textarea")&&Object.keys(localStorage).some(k=>k.startsWith("dr:"))){e.preventDefault();e.returnValue=""}});
 addEventListener("hashchange",route);(async()=>{await loadRegistry();if(G("tr2")===null&&TRM.some(x=>x.id==="nkrv"))sel=["nkrv"];renderTg();await route();resume()})();
