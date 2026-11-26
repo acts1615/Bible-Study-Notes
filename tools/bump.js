@@ -8,5 +8,5 @@ function next(v){let [ma,mi,l,n]=v.split('.');ma=+ma;mi=+mi;n=+n;let c=l.charCod
  return `${ma}.${mi}.${String.fromCharCode(96+c)}.${n}`}
 if(require.main===module){const f=process.argv[2]||'index.html';let s=fs.readFileSync(f,'utf8');
  const m=s.match(/const VER="(\d+\.\d+\.[a-z]\.\d)"/);if(!m){console.error('VER 줄을 찾지 못했습니다');process.exit(1)}
- const v=next(m[1]);fs.writeFileSync(f,s.replace(m[0],`const VER="${v}"`));console.log(m[1]+' → '+v)}
+ const v=next(m[1]);fs.writeFileSync(f,s.replace(m[0],`const VER="${v}"`));console.log(m[1]+' → '+v);const sw=require('path').join(require('path').dirname(f),'sw.js');if(fs.existsSync(sw))fs.writeFileSync(sw,fs.readFileSync(sw,'utf8').replace(/const V="bsn-[^"]*"/,`const V="bsn-${v}"`))}
 module.exports={next};
