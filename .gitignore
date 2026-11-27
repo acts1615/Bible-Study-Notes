@@ -1,4 +1,4 @@
-# 저작권이 있는 번역은 절대 올리지 않습니다. 개역한글(krv)만 공개합니다.
+# 성경 번역은 저작권이 만료된 개역한글(krv)만 공개합니다. (교리·신조 doctrine/ 는 출처를 밝혀 포함)
 translations/*
 !translations/krv.json
 !translations/index.json

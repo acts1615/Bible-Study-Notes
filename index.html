@@ -115,6 +115,18 @@ body.nt,.nt{--acc:#005A9C;--lk:#005A9C}.dark.nt,.dark .nt{--acc:#7fbbe9;--lk:#7f
 #cb{position:sticky;top:0;z-index:30;display:flex;gap:10px;align-items:center;justify-content:center;padding:10px 14px;background:var(--acc);color:#fff;font-size:14px}#cb[hidden]{display:none}#cb button{border:0;border-radius:8px;padding:6px 14px;font-weight:700;cursor:pointer;background:#fff;color:var(--acc)}
 .alb{margin-left:auto;font-size:12.5px;color:var(--mut);display:flex;align-items:center;gap:4px}.lkv{margin-top:8px;padding:8px 12px;border:1.5px solid var(--acc);border-radius:10px;background:var(--card);font-size:13px}.lkv .bar{margin-top:8px;display:flex;gap:8px}.lkv button{padding:5px 12px;border:1px solid var(--bd);border-radius:8px;background:var(--card);cursor:pointer}.lkv .y{background:var(--acc);color:#fff;border-color:var(--acc)}
 .row2.sd .tr{grid-template-columns:1fr;gap:6px}.row2.sd .tr>div+div{padding-left:calc(3.4em + 10px)}.row2.sd .tr>div:first-child>small{padding-left:calc(3.4em + 10px)}
+
+.btnl{display:block;text-align:center;text-decoration:none!important;font-size:14px;padding:5px 8px;border:1px solid var(--bd);border-radius:6px;background:var(--bg);color:var(--fg)}
+.dcl{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:8px;padding:8px}.dci,.dui{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border:1px solid var(--bd);border-radius:10px;background:var(--card);text-decoration:none!important;color:var(--fg)}
+.dci span,.dui span{font-size:12.5px;color:var(--mut)}.dui{margin:6px 0}.dci:hover,.dui:hover{border-color:var(--acc)}
+.di{padding:12px 0;border-bottom:1px solid var(--bd)}.dh{font-size:15px;margin-bottom:4px}.dh b{color:var(--acc)}.dh span{color:var(--mut);font-size:13px}
+.dq,.da{display:flex;gap:8px;margin:4px 0;font-size:var(--ft,15px)}.dq>div,.da>div{flex:1;min-width:0}.dq{font-weight:600}
+.tag{flex:none;width:1.7em;height:1.7em;line-height:1.7em;text-align:center;border-radius:50%;background:var(--acc);color:var(--bg);font-size:12px;font-weight:700}
+.dl{margin:.15em 0;font-size:var(--ft,15px)}.dl.i1{padding-left:1.2em}.dl.i2{padding-left:2.4em}.dt{font-size:var(--ft,15px)}
+.fn{color:var(--acc);font-size:.7em}.dnt{margin:6px 0 4px 2.4em;font-size:12.5px;color:var(--mut)}.dnt small{font-weight:700;margin-right:4px}
+.dcr{font-size:12.5px;color:var(--mut);margin:.3em 0}.dnav{display:flex;justify-content:space-between;gap:8px;margin:18px 0}.dnav a{padding:6px 12px;border:1px solid var(--bd);border-radius:8px;text-decoration:none}
+#dres{display:flex;flex-direction:column;gap:4px;margin:8px 0}#dres a{font-size:13.5px;text-decoration:none;padding:4px 6px;border-radius:6px}#dres a:hover{background:var(--memo)}#dq{width:100%;margin:8px 0}
+.gt{font-weight:700;margin:14px 0 2px;color:var(--acc)}
 </style></head><body>
 <div id="app">
 <aside id="sb">
@@ -126,6 +138,7 @@ body.nt,.nt{--acc:#005A9C;--lk:#005A9C}.dark.nt,.dark .nt{--acc:#7fbbe9;--lk:#7f
  <section><h4>보는 번역</h4><span class="tg" id="tg"></span>
   <button id="ta" class="wide">＋ 번역 파일 추가</button><button id="inst" class="wide" hidden>⬇ 앱으로 설치</button><button id="td" class="wide" title="폴더 안의 성경 파일을 한꺼번에 추가합니다">📂 폴더째 추가</button><input type="file" id="tfd" webkitdirectory multiple hidden><input type="file" id="tf" accept=".json,.js,.txt" multiple hidden>
   <button id="tmg" title="번역 이름을 바꾸거나 지울 때만 누르세요">번역 지우기…</button><small class="note" id="tn"></small></section>
+ <section><h4>교리·신조</h4><a class="wide btnl" id="dcb" href="#d">☩ 요리문답 · 신조 · 신앙고백서</a></section>
  <section><h4>메모</h4>
   <label class="sw"><input type="checkbox" id="mm" checked> 메모 보이기 <small>끄면 본문만 보입니다</small></label>
   <div class="lab">메모 위치</div>
@@ -152,7 +165,7 @@ body.nt,.nt{--acc:#005A9C;--lk:#005A9C}.dark.nt,.dark .nt{--acc:#7fbbe9;--lk:#7f
 <div id="pp" hidden><div class="pc" role="dialog" aria-modal="true"><header><span class="pt" id="ppt"></span><button id="ppp" title="앞 절">◀</button><button id="ppn" title="뒤 절">▶</button><button id="ppx" title="닫기 (Esc)">✕</button></header><div class="pb" id="ppb"></div><footer><label><input type="checkbox" id="ppk"> 다음부터 팝업 없이 바로 이동</label><span class="sp"></span><button id="ppc">닫기</button><button id="ppg" class="go">이 구절로 이동 ▸</button></footer></div></div>
 <script>window.META=[{"n":"창세기","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0}},{"n":"출애굽기","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0}},{"n":"레위기","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0}},{"n":"민수기","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0}},{"n":"신명기","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0}},{"n":"여호수아","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0}},{"n":"사사기","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0}},{"n":"룻기","o":true,"c":{"1":0,"2":0,"3":0,"4":0}},{"n":"사무엘상","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0}},{"n":"사무엘하","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0}},{"n":"열왕기상","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0}},{"n":"열왕기하","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0}},{"n":"역대상","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0}},{"n":"역대하","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0}},{"n":"에스라","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0}},{"n":"느헤미야","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0}},{"n":"에스더","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0}},{"n":"욥기","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0}},{"n":"시편","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0,"62":0,"63":0,"64":0,"65":0,"66":0,"67":0,"68":0,"69":0,"70":0,"71":0,"72":0,"73":0,"74":0,"75":0,"76":0,"77":0,"78":0,"79":0,"80":0,"81":0,"82":0,"83":0,"84":0,"85":0,"86":0,"87":0,"88":0,"89":0,"90":0,"91":0,"92":0,"93":0,"94":0,"95":0,"96":0,"97":0,"98":0,"99":0,"100":0,"101":0,"102":0,"103":0,"104":0,"105":0,"106":0,"107":0,"108":0,"109":0,"110":0,"111":0,"112":0,"113":0,"114":0,"115":0,"116":0,"117":0,"118":0,"119":0,"120":0,"121":0,"122":0,"123":0,"124":0,"125":0,"126":0,"127":0,"128":0,"129":0,"130":0,"131":0,"132":0,"133":0,"134":0,"135":0,"136":0,"137":0,"138":0,"139":0,"140":0,"141":0,"142":0,"143":0,"144":0,"145":0,"146":0,"147":0,"148":0,"149":0,"150":0}},{"n":"잠언","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0}},{"n":"전도서","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0}},{"n":"아가","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0}},{"n":"이사야","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0,"53":0,"54":0,"55":0,"56":0,"57":0,"58":0,"59":0,"60":0,"61":0,"62":0,"63":0,"64":0,"65":0,"66":0}},{"n":"예레미야","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0,"49":0,"50":0,"51":0,"52":0}},{"n":"예레미야애가","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0}},{"n":"에스겔","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0,"29":0,"30":0,"31":0,"32":0,"33":0,"34":0,"35":0,"36":0,"37":0,"38":0,"39":0,"40":0,"41":0,"42":0,"43":0,"44":0,"45":0,"46":0,"47":0,"48":0}},{"n":"다니엘","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0}},{"n":"호세아","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0}},{"n":"요엘","o":true,"c":{"1":0,"2":0,"3":0}},{"n":"아모스","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0}},{"n":"오바댜","o":true,"c":{"1":0}},{"n":"요나","o":true,"c":{"1":0,"2":0,"3":0,"4":0}},{"n":"미가","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0}},{"n":"나훔","o":true,"c":{"1":0,"2":0,"3":0}},{"n":"하박국","o":true,"c":{"1":0,"2":0,"3":0}},{"n":"스바냐","o":true,"c":{"1":0,"2":0,"3":0}},{"n":"학개","o":true,"c":{"1":0,"2":0}},{"n":"스가랴","o":true,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0}},{"n":"말라기","o":true,"c":{"1":0,"2":0,"3":0,"4":0}},{"n":"마태복음","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0}},{"n":"마가복음","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0}},{"n":"누가복음","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0}},{"n":"요한복음","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0}},{"n":"사도행전","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0,"23":0,"24":0,"25":0,"26":0,"27":0,"28":0}},{"n":"로마서","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0}},{"n":"고린도전서","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0}},{"n":"고린도후서","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0}},{"n":"갈라디아서","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0}},{"n":"에베소서","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0}},{"n":"빌립보서","o":false,"c":{"1":0,"2":0,"3":0,"4":0}},{"n":"골로새서","o":false,"c":{"1":0,"2":0,"3":0,"4":0}},{"n":"데살로니가전서","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0}},{"n":"데살로니가후서","o":false,"c":{"1":0,"2":0,"3":0}},{"n":"디모데전서","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0}},{"n":"디모데후서","o":false,"c":{"1":0,"2":0,"3":0,"4":0}},{"n":"디도서","o":false,"c":{"1":0,"2":0,"3":0}},{"n":"빌레몬서","o":false,"c":{"1":0}},{"n":"히브리서","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0}},{"n":"야고보서","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0}},{"n":"베드로전서","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0}},{"n":"베드로후서","o":false,"c":{"1":0,"2":0,"3":0}},{"n":"요한일서","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0}},{"n":"요한이서","o":false,"c":{"1":0}},{"n":"요한삼서","o":false,"c":{"1":0}},{"n":"유다서","o":false,"c":{"1":0}},{"n":"요한계시록","o":false,"c":{"1":0,"2":0,"3":0,"4":0,"5":0,"6":0,"7":0,"8":0,"9":0,"10":0,"11":0,"12":0,"13":0,"14":0,"15":0,"16":0,"17":0,"18":0,"19":0,"20":0,"21":0,"22":0}}];window.BL={};</script>
 <script>
-const VER="1.0.c.6";/* VERSION: tools/bump.js 가 이 줄을 올립니다 */
+const VER="1.0.c.9";/* VERSION: tools/bump.js 가 이 줄을 올립니다 */
 const $=s=>document.querySelector(s),M=META;let cur=[0,1,0];
 const S=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}},G=k=>{try{return localStorage.getItem(k)}catch(e){return null}};
 let sel=JSON.parse(G("tr2")||'["krv"]'),memo=G("memo")!=="0",mpos=G("mpos")==="side"?"side":"below";
@@ -281,7 +294,7 @@ function cardsBox(b,c,v,raw,cover){const p=parseRegion(raw),w=document.createEle
  w.appendChild(add);return w}
 async function connect(h){ROOT=h;$("#cb").hidden=true;try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}try{await idbSet(h)}catch(e){}$("#cn").textContent="📁 연결됨";say("폴더 연결됨 — 메모 칸을 눌러 편집",1);
  await loadRegistry();if(G("tr2")===null&&TRM.some(x=>x.id==="nkrv"))sel=["nkrv"];sel=TRM.map(x=>x.id).filter(id=>sel.includes(id));if(!sel.length)sel=["krv"];renderTg();
- if(!Object.keys(EDITED).length||!Object.keys(MC).length||G("mcv")!=="2")await rescan();else if(location.hash.length>1)refresh();else showIndex()}
+ dcBuild();if(!Object.keys(EDITED).length||!Object.keys(MC).length||G("mcv")!=="2")await rescan();else if(location.hash.length>1)refresh();else showIndex()}
 async function pick(){if(!window.showDirectoryPicker){alert("이 브라우저는 폴더 저장 기능을 지원하지 않습니다.\n\n크롬(Chrome) 또는 엣지(Edge) PC 버전에서 열어 주세요.\n(성경 보기는 이 브라우저에서도 됩니다)");return}
  try{const h=await showDirectoryPicker({mode:"readwrite"});
  let has=true;try{await h.getFileHandle("00 성경연구 목차.md")}catch(e){has=false}
@@ -415,7 +428,7 @@ async function fixAll(){if(!ROOT){say("먼저 노트 폴더를 연결하세요",
  saveIdx();say(`✓ ${ok}개 장의 링크 ${tot}개를 바로잡았습니다`,1);refresh()}
 async function rescan(){say("백링크 전체 검사 중…",0);let n=0;for(let b=0;b<66;b++)for(const c of chapsOf(b)){try{setEdited(b,+c,await readMd(b,+c),true);n++}catch(e){}}saveIdx();const k=Object.values(MC).filter(x=>x>0).length;say(n==0?"노트 파일을 한 장도 읽지 못했습니다 — 연결한 폴더가 성경연구노트 폴더가 맞는지 확인하세요":`✓ ${n}장 검사 · 메모 있는 장 ${k}곳`,n>0);if(location.hash.length>1)refresh();else showIndex()}
 
-function bl_(b,c){return bl(b,c).slice()}
+function bl_(b,c){return bl(b,c).slice().concat(dcBl(b,c))}
 function setLoc(t,b){$("#lt").textContent=t;$("#lbc").innerHTML=b==null?"":`<a href="#">성경</a><i>›</i><a href="#t/${M[b].o?"ot":"nt"}">${M[b].o?"구약":"신약"}</a><i>›</i><a href="#book/${b}" title="${esc(M[b].n)} 전체 장 보기">${esc(M[b].n)}</a>`}
 const bcHtml=(b,last)=>`<nav class="bc"><a href="#">성경</a><i>›</i><a href="#t/${M[b].o?"ot":"nt"}">${M[b].o?"구약":"신약"}</a><i>›</i><a href="#book/${b}" title="${esc(M[b].n)} 전체 장 보기">${esc(M[b].n)}</a>${last?`<i>›</i><b>${last}</b>`:""}</nav>`;
 const _bs=(()=>{const a=(G("scr")||"").split(":").map(Number);return a.length==3&&a.every(x=>!isNaN(x))?a:null})();let bootScr=_bs;
@@ -434,7 +447,7 @@ async function show(b,c,v,keep){const y0=scrollY,bs=bootScr;bootScr=null;cur=[b,
  if(!R)h+=`<div class="hint noprint">📁 왼쪽 메뉴의 <b>폴더 연결</b>을 하면 내 메모와 소제목을 보고 쓸 수 있습니다. (크롬·엣지 PC)</div>`;
  const BLL=bl_(b,c);const COV={};if(R)for(const [k,t] of Object.entries(R)){const s0=+k;if(!s0)continue;for(const cd of parseRegion(t).cards)for(let q=s0+1;q<=cd.end;q++)(COV[q]=COV[q]||[]).push({s:s0,e:cd.end,src:cd.src})}
  const cnt=(t,n)=>{const p=parseRegion(t||"");return (p.legacy?1:0)+p.cards.length+((COV[n]||[]).length)};
- const sideOf=n=>{const a=BLL.filter(x=>x[3]==n).sort((x,y)=>x[0]-y[0]||x[1]-y[1]||x[2]-y[2]);return a.length?`<small>이 절을 인용한 곳 (${a.length})</small>`+a.map(x=>`<a href="#${x[0]}/${x[1]}/${x[2]||0}">${M[x[0]].n} ${x[1]}${x[2]?":"+x[2]:""}</a>`).join(""):""};
+ const sideOf=n=>{const a=BLL.filter(x=>x[3]==n).sort((x,y)=>x[0]-y[0]||x[1]-y[1]||x[2]-y[2]);return a.length?`<small>이 절을 인용한 곳 (${a.length})</small>`+a.map(blA).join(""):""};
  const det=(n,k,lab)=>`<details class="md"${k?" open":""}><summary>${k?"메모":"＋ 메모 추가"}${k?` <i>${k}</i>`:""}${lab||""}</summary><div class="slot" data-v="${n}"></div></details>`;
  if(R&&memo)h+=det(0,cnt(R[0]||"",0)," · 장 전체");
  for(const n of nums){
@@ -445,7 +458,7 @@ async function show(b,c,v,keep){const y0=scrollY,bs=bootScr;bootScr=null;cur=[b,
    return t||j==0?`<div><small>${esc(tname(id))}</small>`+(j==0?num:esc(t))+`</div>`:"<div></div>"}).join("")+`</div>`+(mpos=="side"?"":dm)+`</div><div class="side noprint">${mpos=="side"?dm:""}${sideOf(n)}</div></div>`}
  for(const id of alts){const t=tv(id,b,c);h+=`<div class="sec">${esc(tname(id))}</div><div class="alt"><div class="al">이 번역은 절 번호 체계가 달라 나란히 맞추지 않고 따로 보여 드립니다. (${esc(tname(id))}의 번호 기준)</div>`+Object.keys(t).map(Number).sort((x,y)=>x-y).map(n=>`<div class="vl"><div class="vc"><span class="vn">${n}</span></div><div class="tx">${esc(t[n])}</div></div>`).join("")+`</div>`}
  const bl0=BLL.filter(x=>!x[3]);
- if(bl0.length)h+=`<div class="sec noprint">이 장 전체를 인용한 곳 (${bl0.length})</div><div class="bl noprint">`+bl0.map(x=>`<a href="#${x[0]}/${x[1]}/${x[2]||0}">${M[x[0]].n} ${x[1]}:${x[2]||"서두"}</a>`).join("")+`</div>`;
+ if(bl0.length)h+=`<div class="sec noprint">이 장 전체를 인용한 곳 (${bl0.length})</div><div class="bl noprint">`+bl0.map(x=>x[4]?blA(x):`<a href="#${x[0]}/${x[1]}/${x[2]||0}">${M[x[0]].n} ${x[1]}:${x[2]||"서두"}</a>`).join("")+`</div>`;
  m.innerHTML=h;document.querySelectorAll(".slot").forEach(e=>{const vv=+e.dataset.v;e.replaceWith(cardsBox(b,c,vv,R[vv]||"",COV[vv]||[]))});
  document.querySelectorAll("details.md:not([open])").forEach(dt=>dt.addEventListener("toggle",()=>{if(!dt.open)return;const bt=dt.querySelector(".addc button");if(bt&&!dt.querySelector("details.mc")&&!dt.querySelector(".ef"))bt.click()}));
  if(R)for(const k of Object.keys(localStorage)){const mm=k.match(/^dr:(\d+):(\d+):(\d+):(.+)$/);if(!mm||+mm[1]!==b||+mm[2]!==c)continue;const box=document.querySelector(`.cards[data-v="${+mm[3]}"]`);if(!box)continue;const dt=box.closest("details.md");if(dt)dt.open=true;const key=mm[4];let bt=null;
@@ -476,7 +489,7 @@ async function show(b,c,v,keep){const y0=scrollY,bs=bootScr;bootScr=null;cur=[b,
 
 
 function fillCh(b){const o=$("#ch"),key=b+":"+sel.join();if(o.dataset.b==key)return;o.dataset.b=key;o.innerHTML=chapsOf(b).map(k=>`<option value="${k}">${k}장${mcn(b,k)?" ("+mcn(b,k)+")":""}</option>`).join("")}
-async function route(){const hh=location.hash.slice(1);if(/^book\/\d+$/.test(hh)){await ensureSel();tocOpen=+hh.slice(5);showIndex(true);return}if(/^t\/(ot|nt)$/.test(hh)){await ensureSel();tocOpen=-2;showIndex(true,hh.slice(2));return}const p=location.hash.slice(1).split("/").map(Number);await ensureSel();if(p.length>=2&&!isNaN(p[0]))show(p[0],p[1],p[2]||0);else showIndex()}
+async function route(){const hh=location.hash.slice(1);if(hh==="d"||hh.startsWith("d/")){await ensureSel();return dcRoute(hh)}if(/^book\/\d+$/.test(hh)){await ensureSel();tocOpen=+hh.slice(5);showIndex(true);return}if(/^t\/(ot|nt)$/.test(hh)){await ensureSel();tocOpen=-2;showIndex(true,hh.slice(2));return}const p=location.hash.slice(1).split("/").map(Number);await ensureSel();if(p.length>=2&&!isNaN(p[0]))show(p[0],p[1],p[2]||0);else showIndex()}
 const GR=[["구약 · 모세오경",0,4],["구약 · 역사서",5,16],["구약 · 시가서",17,21],["구약 · 대선지서",22,26],["구약 · 소선지서",27,38],["신약 · 복음서와 사도행전",39,43],["신약 · 바울 서신",44,56],["신약 · 일반 서신과 계시록",57,65]];
 let tocOpen=-1;
 function showIndex(focus,tt){document.title="성경연구노트";document.body.classList.remove("nt");setLoc("성경연구노트 · 목차");
@@ -561,11 +574,113 @@ document.querySelectorAll("#lp button").forEach(x=>x.onclick=()=>{S("pop",x.data
 $("#m").addEventListener("click",e=>{const a=e.target.closest("a[href^='#']");if(!a||a.closest(".toc,.grid,.resume,.bc")||e.ctrlKey||e.metaKey||e.shiftKey||e.button)return;
  const m=/^#(\d+)\/(\d+)\/(\d+)$/.exec(a.getAttribute("href"));if(!m||!popOn())return;e.preventDefault();ppShow(+m[1],+m[2],+m[3]||1)});
 $("#ppb").addEventListener("click",e=>{const a=e.target.closest("a[href^='#']");if(!a)return;const m=/^#(\d+)\/(\d+)\/(\d+)$/.exec(a.getAttribute("href"));if(!m)return;e.preventDefault();ppShow(+m[1],+m[2],+m[3]||1);$("#ppb").scrollTop=0});
+/* ---- 교리·신조 (문답별 메모) ---- */
+const DC={idx:null,docs:{},err:""};
+const dcLink=t=>rich(autolink(t,"").text);
+async function dcIndex(){if(DC.idx)return DC.idx;let a=[];
+ try{const r=await fetch("doctrine/index.json",{cache:"no-cache"});if(!r.ok)throw new Error(r.status);a=await r.json();DC.err=""}catch(e){DC.err="교리 파일(doctrine/)을 불러오지 못했습니다. 웹 주소(https)로 열거나, 아래 ＋ 교리 파일 추가로 .json 파일을 넣어 주세요."}
+ for(const k of await kvKeys("t")){if(!String(k).startsWith("dc:"))continue;const d=await kvGet("t",k);if(d&&d.id&&!a.some(x=>x.id===d.id))a.push({id:d.id,title:d.title,items:(d.units||[]).reduce((n,u)=>n+u.items.length,0),units:d.units.length,mine:1});else if(d)DC.docs[d.id]=d}
+ a.sort((x,y)=>(DC.ord(x)-DC.ord(y)));DC.idx=a;return a}
+DC.ord=x=>({hc:1,wsc:2,wlc:3,wcf:4,bc:5,dort:6})[x.id]||50;
+async function dcDoc(id){if(DC.docs[id])return DC.docs[id];let d=await kvGet("t","dc:"+id);
+ if(!d){const r=await fetch(`doctrine/${encodeURIComponent(id)}.json`,{cache:"no-cache"});if(!r.ok)throw new Error("파일 없음");d=await r.json()}
+ const cnt={};for(const u of d.units)for(const it of u.items){const l=it.label||String(it.no);cnt[l]=(cnt[l]||0)+1}
+ for(const u of d.units)for(const it of u.items){const l=it.label||String(it.no);it._h=cnt[l]>1?`${l} · ${(u.title||u.no)+""}`.replace(/\s+/g," ").slice(0,60):l}
+ return DC.docs[id]=d}
+const dcPath=d=>String(d.title).replace(/[\\/:*?"<>|]/g,"")+".md";
+async function dcRead(d){if(ROOT){try{const dh=await ROOT.getDirectoryHandle("교리");return (await(await(await dh.getFileHandle(dcPath(d))).getFile()).text()).replace(/\r\n/g,"\n")}catch(e){return ""}}
+ return G("dm:"+d.id)||""}
+async function dcWrite(d,txt){if(ROOT){const dh=await ROOT.getDirectoryHandle("교리",{create:true});const w=await(await dh.getFileHandle(dcPath(d),{create:true})).createWritable();await w.write(txt);await w.close()}else S("dm:"+d.id,txt)}
+function dcRegions(txt){const L=txt.split("\n"),R={};let k=null,buf=[];const fl=()=>{if(k!==null)R[k]=buf.join("\n").trim()};
+ for(const l of L){const m=l.match(/^### (.+)$/);if(m||/^## /.test(l)||/^# /.test(l)){fl();k=m?m[1].trim():null;buf=[];continue}if(k!==null)buf.push(l)}fl();return R}
+async function dcSave(d,h,fn){let txt=await dcRead(d);const L=txt?txt.split("\n"):[`---\ntags: [교리, ${d.id}]\n---`,`# ${d.title}`,""];
+ let i=L.findIndex(l=>l.trim()==="### "+h),p;
+ if(i<0){L.push("","### "+h,"");i=L.length-2}
+ let e=i+1;while(e<L.length&&!/^(#{1,3}) /.test(L[e]))e++;
+ p=parseRegion(L.slice(i+1,e).join("\n"));fn(p);const reg=buildRegion(p,0);
+ L.splice(i+1,e-i-1,"",...(reg?[...reg.split("\n"),""]:[]));
+ await dcWrite(d,L.join("\n").replace(/\n{3,}/g,"\n\n"));say("✓ 저장됨 "+new Date().toLocaleTimeString("ko-KR"),1)}
+function dcLines(arr,notes){return (arr||[]).map(l=>`<p class="dl i${l.i||0}">`+l.s.map(x=>typeof x==="number"?`<sup class="fn">${x}</sup>`:esc(x)).join("")+`</p>`).join("")}
+function dcItem(d,u,it,R){const h=it._h,lab=it.label||String(it.no);
+ let body="";
+ if(it.t)body+=`<div class="dt">${dcLines(it.t)}</div>`;
+ else body+=`<div class="dq"><span class="tag">문</span><div>${dcLines(it.q)}</div></div><div class="da"><span class="tag">답</span><div>${dcLines(it.a)}</div></div>`;
+ if(it.notes&&Object.keys(it.notes).length)body+=`<div class="dnt">`+Object.entries(it.notes).map(([n,t])=>`<div><sup class="fn">${n}</sup> ${dcLink(t)}</div>`).join("")+`</div>`;
+ if(it.refs)body+=`<div class="dnt"><small>성경 구절 참조</small> ${dcLink(it.refs)}</div>`;
+ const p=parseRegion(R[h]||""),n=(p.legacy?1:0)+p.cards.length;
+ return `<section class="di" id="di${u.no}-${it.no}" data-h="${esc(h)}"><div class="dh"><b>${esc(lab)}</b>${it.heading?` <span>${esc(it.heading)}</span>`:""}</div>${body}<details class="md"${n?" open":""}><summary>${n?"메모":"＋ 메모 추가"}${n?` <i>${n}</i>`:""}</summary><div class="slot"></div></details></section>`}
+function dcCards(d,sec,R){const h=sec.dataset.h,p=parseRegion(R[h]||""),w=document.createElement("div");w.className="cards";
+ const redo=()=>dcUnitShow(d,+sec.id.slice(2).split("-")[0],true);
+ const ed=(host,init,meta,onsave)=>{host.innerHTML=`<div class="ef">${meta?`<div class="bar">출처 <input class="s" list="srcl" placeholder="예: 내 생각" value="${esc(init.src||"")}"><datalist id="srcl">${srcList().map(x=>`<option value="${esc(x)}">`).join("")}</datalist></div>`:""}<textarea>${esc(init.body||"")}</textarea><div class="bar"><button class="sv">저장</button><button class="cx">취소</button><label class="alb"><input type="checkbox" class="al" ${G("autolink")!=="0"?"checked":""}> 구절 자동 링크</label></div></div>`;
+  const ta=host.querySelector("textarea");ta.focus();host.addEventListener("click",e=>e.stopPropagation());
+  host.querySelector(".cx").onclick=()=>redo();
+  host.querySelector(".sv").onclick=async()=>{const al=host.querySelector(".al");S("autolink",al.checked?"1":"0");let t=ta.value.trim();if(al.checked)t=autolink(t,"").text.trim();const src=(host.querySelector(".s")||{}).value||"";rememberSrc(src.trim());
+   try{await dcSave(d,h,p=>onsave(p,src.trim(),t));await dcLoadMemos(d);dcBuild(d.id);redo()}catch(e){say("저장 실패: "+e.message,0)}}};
+ const card=(lab,html,onEdit,onDel)=>{const x=document.createElement("details");x.className="mc";x.open=true;
+  x.innerHTML=`<summary><span class="lb">${esc(lab)}</span><span class="acts"><button class="ed">✎ 수정</button><button class="dl">🗑 삭제</button></span></summary><div class="mb">${html}</div>`;
+  const b=x.querySelector(".mb");x.querySelector(".ed").onclick=e=>{e.preventDefault();e.stopPropagation();onEdit(b)};b.addEventListener("dblclick",e=>{if(!e.target.closest("a,button,textarea,input")&&!b.querySelector(".ef"))onEdit(b)});
+  x.querySelector(".dl").onclick=async e=>{e.preventDefault();e.stopPropagation();if(!confirm("이 메모를 삭제할까요?"))return;await onDel();redo()};w.appendChild(x)};
+ if(p.legacy)card("기존 메모",mdHtml(p.legacy),b=>ed(b,{body:p.legacy},false,(q,s,t)=>{q.legacy=t}),()=>dcSave(d,h,q=>{q.legacy=""}).then(()=>dcLoadMemos(d)));
+ p.cards.forEach((c,i)=>card(c.src||"메모",mdHtml(c.body),b=>ed(b,c,true,(q,s,t)=>{q.cards[i]={src:s,end:0,body:t}}),()=>dcSave(d,h,q=>q.cards.splice(i,1)).then(()=>dcLoadMemos(d))));
+ const add=document.createElement("div");add.className="addc";add.innerHTML=`<button>＋ 메모 더 추가</button>`;
+ add.querySelector("button").onclick=()=>ed(add,{src:"",body:""},true,(q,s,t)=>{q.cards.push({src:s,end:0,body:t})});w.appendChild(add);
+ const dt=sec.querySelector("details.md");dt.addEventListener("toggle",()=>{if(dt.open&&!w.querySelector("details.mc")&&!w.querySelector(".ef"))add.querySelector("button").click()});return w}
+const DCM={};async function dcLoadMemos(d){DCM[d.id]=dcRegions(await dcRead(d));return DCM[d.id]}
+function dcSrc(d){return (d.source&&d.source.url?`<p class="dcr">출처: <a href="${esc(d.source.url)}" target="_blank" rel="noopener">${esc(d.source.name||d.source.url)}</a>`:`<p class="dcr">`)+(d.credit&&d.credit.includes("©")?" · © Ligonier Ministries. All Rights Reserved.":"")+(d.id==="wsc"?" · 성경 구절 참조: 「웨스트민스터 성경 소요리문답」 자료":"")+`</p>`}
+function dcBc(d,last){return `<nav class="bc"><a href="#">성경</a><i>›</i><a href="#d">교리·신조</a>${d?`<i>›</i>${last?`<a href="#d/${d.id}">${esc(d.title)}</a><i>›</i><b>${esc(last)}</b>`:`<b>${esc(d.title)}</b>`}`:""}</nav>`}
+async function dcHome(){document.title="교리·신조";document.body.classList.remove("nt");setLoc("교리·신조",null);$("#lbc").innerHTML=`<a href="#">성경</a>`;
+ const a=await dcIndex();
+ $("#m").innerHTML=`<div class="hd">${dcBc(null)}<small>교리·신조</small><h1>교리·신조</h1></div><div class="toc"><p class="tag">요리문답과 신조·신앙고백서를 문답·조항마다 읽고 메모를 붙입니다. 메모는 연결한 노트 폴더의 <b>교리</b> 폴더에 .md 파일로 저장됩니다. (폴더를 연결하지 않으면 이 브라우저에만 임시 저장)</p>`+
+  `<input id="dq" type="search" placeholder="전체 검색 (예: 위로, 예정, 성례)" autocomplete="off"><div id="dres"></div>`+
+  (DC.err?`<p class="hint">${esc(DC.err)}</p>`:"")+
+  `<div class="card2 dcl">`+a.map(x=>`<a class="dci" href="#d/${x.id}"><b>${esc(x.title)}</b><span>${x.units}묶음 · ${x.items}항</span></a>`).join("")+`</div>`+
+  `<div class="addc"><button id="dadd">＋ 교리 파일 추가 (.json)</button><input type="file" id="dfile" accept=".json" multiple hidden></div>`+
+  `<p class="foot">본문 출처: Ligonier Ministries 한국어 신조·신앙고백서 (<a href="https://ko.ligonier.org/resources/creeds-and-confessions/" target="_blank" rel="noopener">ko.ligonier.org</a>) · © Ligonier Ministries. All Rights Reserved. 개인 연구용으로 출처를 밝혀 싣습니다.</p></div>`;
+ $("#dadd").onclick=()=>$("#dfile").click();
+ $("#dfile").onchange=async e=>{for(const f of e.target.files){try{const d=JSON.parse(await f.text());if(!d.id||!d.title||!Array.isArray(d.units))throw new Error("id·title·units 가 없습니다");await kvSet("t","dc:"+d.id,d);DC.docs[d.id]=d;DC.idx=null}catch(er){say(f.name+": "+er.message,0)}}dcHome()};
+ let tm;$("#dq").oninput=e=>{clearTimeout(tm);tm=setTimeout(()=>dcSearch(e.target.value.trim()),200)}}
+async function dcSearch(q){const o=$("#dres");if(q.length<2){o.innerHTML="";return}const out=[];
+ for(const x of DC.idx){let d;try{d=await dcDoc(x.id)}catch(e){continue}
+  for(const u of d.units)for(const it of u.items){const tx=[...(it.q||[]),...(it.a||[]),...(it.t||[])].map(l=>l.s.filter(y=>typeof y==="string").join("")).join(" ");
+   const i=tx.indexOf(q);if(i>=0)out.push(`<a href="#d/${d.id}/${u.no}/${it.no}"><b>${esc(d.title)} ${esc(String(it.label||it.no))}</b> ${esc(tx.slice(Math.max(0,i-20),i+50))}</a>`);if(out.length>=60)break}}
+ o.innerHTML=out.length?`<small>${out.length>=60?"60건 이상 — 앞 60건":out.length+"건"}</small>`+out.join(""):`<p class="hint">검색 결과가 없습니다.</p>`}
+async function dcDocShow(id){let d;try{d=await dcDoc(id)}catch(e){$("#m").innerHTML=`<div class="hd">${dcBc(null)}<h1>문서를 불러오지 못했습니다</h1></div><p class="hint">${esc(id)}: ${esc(e.message)}</p>`;return}
+ document.title=d.title;setLoc(d.title,null);$("#lbc").innerHTML=`<a href="#">성경</a><i>›</i><a href="#d">교리·신조</a>`;const R=await dcLoadMemos(d);
+ let h=`<div class="hd">${dcBc(d)}<small>${esc(d.subtitle||"")}</small><h1>${esc(d.title)}</h1>${dcSrc(d)}</div><div class="toc">`,part=null;
+ for(const u of d.units){if(u.part&&u.part!==part){part=u.part;h+=`<div class="gt">${esc(part)}</div>`}
+  const m=u.items.filter(it=>(R[it._h]||"").trim()).length;
+  h+=`<a class="dui" href="#d/${d.id}/${u.no}"><b>${esc(u.title||(d.unitLabel||"")+" "+u.no)}</b><span>${u.items.length>1?u.items.map(it=>it.label||it.no).slice(0,1)+(u.items.length>1?" ~ "+(u.items[u.items.length-1].label||u.items[u.items.length-1].no):""):""}${m?` · <i class="dt"></i>메모 ${m}`:""}</span></a>`}
+ $("#m").innerHTML=h+`</div>`;scrollTo(0,0)}
+async function dcUnitShow(d,no,keep,item){if(typeof d==="string"){try{d=await dcDoc(d)}catch(e){return dcDocShow(d)}}
+ const y0=scrollY,k=d.units.findIndex(u=>u.no==no);if(k<0)return dcDocShow(d.id);const u=d.units[k],R=await dcLoadMemos(d);
+ document.title=`${d.title} ${u.title||""}`;setLoc(`${d.short||d.title} · ${u.title||u.no}`,null);$("#lbc").innerHTML=`<a href="#d">교리·신조</a><i>›</i><a href="#d/${d.id}">${esc(d.short||d.title)}</a>`;
+ const pv=d.units[k-1],nx=d.units[k+1];
+ $("#m").innerHTML=`<div class="hd">${dcBc(d,u.title||String(u.no))}<small>${esc(d.title)}${u.part?" · "+esc(u.part):""}</small><h1>${esc(u.title||(d.unitLabel||"")+" "+u.no)}</h1></div>`+u.items.map(it=>dcItem(d,u,it,R)).join("")+
+  `<div class="dnav noprint">${pv?`<a href="#d/${d.id}/${pv.no}">◀ ${esc(String(pv.title||pv.no))}</a>`:"<span></span>"}${nx?`<a href="#d/${d.id}/${nx.no}">${esc(String(nx.title||nx.no))} ▶</a>`:"<span></span>"}</div>`+dcSrc(d);
+ document.querySelectorAll(".di").forEach(sec=>sec.querySelector(".slot").replaceWith(dcCards(d,sec,R)));
+ if(keep)requestAnimationFrame(()=>scrollTo(0,y0));else if(item){const e=$(`#di${u.no}-${item}`);if(e){e.scrollIntoView({block:"start"});e.style.outline="2px solid var(--acc)"}}else scrollTo(0,0);
+ DC.cur=[d.id,u.no]}
+function dcRoute(hh){const p=hh.split("/");if(p.length==1)return dcHome();if(p.length==2)return dcDocShow(p[1]);return dcUnitShow(p[1],+p[2],false,p[3])}
+
+
+/* ---- 교리 → 성경 백링크 ---- */
+const DCB={};let dcBusy=0;
+function dcScan(txt,out,meta){for(const l of txt.split("\n"))for(const m of l.matchAll(WL)){const bi=BI[m[1]];if(bi!==undefined)out.push([bi,+m[2],+(m[3]||0),meta])}}
+async function dcBuild(only){if(dcBusy)return;dcBusy=1;try{const a=await dcIndex();let k=0;
+ for(const x of a){if(only&&x.id!==only)continue;k++;let d;try{d=await dcDoc(x.id)}catch(e){continue}
+  const R=dcRegions(await dcRead(d)),out=[];let seq=0;
+  for(const u of d.units)for(const it of u.items){seq++;const meta={id:d.id,u:u.no,i:it.no,s:seq,t:(d.short||d.title)+" "+(it.label||it.no)};
+   const st=[it.refs||"",...Object.values(it.notes||{})].join("\n");if(st.trim())dcScan(autolink(st,"").text,out,meta);
+   if(R[it._h])dcScan(R[it._h],out,meta)}
+  DCB[d.id]=out.map(e=>[e[0],e[1],e[2],e[3]])}
+ }catch(e){}dcBusy=0;if(document.querySelector(".row2")&&!document.querySelector(".ef textarea"))show(cur[0],cur[1],0,true)}
+function dcBl(b,c){const r=[];for(const id in DCB)for(const e of DCB[id])if(e[0]==b&&e[1]==c){const seen=r.some(y=>y[4].id==e[3].id&&y[4].u==e[3].u&&y[4].i==e[3].i&&y[3]==e[2]);if(!seen)r.push([999,e[3].s,0,e[2],e[3]])}return r}
+const blA=x=>x[4]?`<a href="#d/${x[4].id}/${x[4].u}/${x[4].i}">☩ ${esc(x[4].t)}</a>`:`<a href="#${x[0]}/${x[1]}/${x[2]||0}">${M[x[0]].n} ${x[1]}${x[2]?":"+x[2]:""}</a>`;
 let DEF=null;addEventListener("beforeinstallprompt",e=>{e.preventDefault();DEF=e;$("#inst").hidden=false});
 $("#inst").onclick=async()=>{if(!DEF)return;DEF.prompt();try{await DEF.userChoice}catch(e){}DEF=null;$("#inst").hidden=true};
 addEventListener("appinstalled",()=>{$("#inst").hidden=true;say("✓ 앱으로 설치되었습니다",1)});
 if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol))navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).catch(()=>{});
 let _st;addEventListener("scroll",()=>{clearTimeout(_st);_st=setTimeout(()=>{if(document.querySelector(".row2"))S("scr",cur[0]+":"+cur[1]+":"+Math.round(scrollY))},250)},{passive:true});
 addEventListener("beforeunload",e=>{if(document.querySelector(".ef textarea")&&Object.keys(localStorage).some(k=>k.startsWith("dr:"))){e.preventDefault();e.returnValue=""}});
-addEventListener("hashchange",route);(async()=>{await loadRegistry();if(G("tr2")===null&&TRM.some(x=>x.id==="nkrv"))sel=["nkrv"];renderTg();await route();resume()})();
+addEventListener("hashchange",route);(async()=>{await loadRegistry();if(G("tr2")===null&&TRM.some(x=>x.id==="nkrv"))sel=["nkrv"];renderTg();await route();resume();dcBuild()})();
 </script></body></html>
